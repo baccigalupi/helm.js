@@ -1,5 +1,5 @@
 # Helm.js
 
 Notes:
-* assemble for documentation?
+* assemble for documentation? / inch-ci.org
 * eslint ??

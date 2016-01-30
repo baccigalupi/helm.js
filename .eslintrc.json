@@ -2,5 +2,16 @@
     "extends": "standard",
     "plugins": [
         "standard"
-    ]
+    ],
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "globals": {
+        "Helm": true,
+        "$": true,
+        "Hogan": true,
+        "_": true,
+        "Backbone": true
+    }
 }
