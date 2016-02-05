@@ -729,5 +729,6 @@
   })
 
 
+  root.Helm = Helm
   return Helm
 }))

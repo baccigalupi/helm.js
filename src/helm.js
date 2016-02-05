@@ -51,5 +51,6 @@
   //= require notifications.js
   //= require router.js
 
+  root.Helm = Helm
   return Helm
 }))
