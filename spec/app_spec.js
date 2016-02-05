@@ -1,26 +1,13 @@
-var jsdom = require('jsdom')
+var domSetup = require(__dirname + "/support/dom_helper")
 
 describe('Helm.App', function() {
   var App, app;
 
-  beforeEach(function(done) {
-    jsdom.env({
-      html: "<html><body></body></html>",
-      done: function(errs, window) {
-        global.window = window;
-        setupTest()
-      }
-    });
-
-    function setupTest () {
-      global.$ = require('jquery')
-      global._ = require('underscore')
-      global.Backbone = require('backbone')
-      require(__dirname + "/../dist/helm-0.7.0")
-
+  beforeEach(function (done) {
+    domSetup(function () {
       spyOn(Backbone.history, 'start')
       done()
-    }
+    })
   });
 
   afterEach(function() {
