@@ -1,8 +1,26 @@
+var jsdom = require('jsdom')
+
 describe('Helm.App', function() {
   var App, app;
 
-  beforeEach(function() {
-    spyOn(Backbone.history, 'start');
+  beforeEach(function(done) {
+    jsdom.env({
+      html: "<html><body></body></html>",
+      done: function(errs, window) {
+        global.window = window;
+        setupTest()
+      }
+    });
+
+    function setupTest () {
+      global.$ = require('jquery')
+      global._ = require('underscore')
+      global.Backbone = require('backbone')
+      require(__dirname + "/../dist/helm-0.7.0")
+
+      spyOn(Backbone.history, 'start')
+      done()
+    }
   });
 
   afterEach(function() {
